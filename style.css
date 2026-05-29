@@ -1,0 +1,308 @@
+/* =========================================================
+   1. GLOBAL & VIEWPORT CONTROL
+   ========================================================= */
+body {
+    background: url('unnamed.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    
+    /* Locks the view size so everything matches perfectly */
+    width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+    display: block; 
+}
+
+/* =========================================================
+   2. HEADER & BURGER ICON NAVIGATION (FIXED ALIGNMENT)
+   ========================================================= */
+#nav {
+    background: linear-gradient(135deg, #18acb600, #a0db1600);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative; /* Keeps layout isolated */
+}
+
+/* Forces the burger icon to stay locked on the absolute left side */
+.burger-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: rgb(8, 39, 216);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    justify-self: start;
+}
+
+.burger-icon:hover {
+    transition: 0.3s;
+    color: #111;
+}
+
+/* Keeps the store headings perfectly centered without pulling the burger button */
+/* Container styling */
+/* 1. Header Container */
+.header {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0; /* Gives some breathing room at the top */
+}
+
+/* 2. Main Store Title (MongKonChai Hardware) */
+.header h1 {
+    font-family: 'Prompt', sans-serif;
+    color: #ffffff;             /* Crisp white text so it stands out on the image */
+    font-size: 3.2rem;          /* Large and prominent */
+    font-weight: 800;           /* Heavy, bold look */
+    margin: 0 0 10px 0;         /* Clear bottom spacing */
+    letter-spacing: -0.5px;
+    /* Smooth text shadow layer to guarantee readability over ANY background photo */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 
+                 -1px -1px 0 rgba(0, 0, 0, 0.5),  
+                  1px -1px 0 rgba(0, 0, 0, 0.5),
+                 -1px  1px 0 rgba(0, 0, 0, 0.5),
+                  1px  1px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* 3. Subtitle (ร้านวัสดุก่อสร้าง...) */
+.header h2 {
+    font-family: 'Prompt', sans-serif;
+    color: #e74c3c;             /* Premium construction/hardware red */
+    font-size: 1.15rem;         /* Clean, readable size */
+    font-weight: 600;           /* Medium-bold text thickness */
+    margin: 0;                  /* Removed the negative margin */
+    
+    /* Elegant Capsule/Pill Effect */
+    background-color: rgba(255, 255, 255, 0.95); /* Bright white background pill */
+    padding: 6px 22px;          /* Padding inside the capsule */
+    border-radius: 30px;        /* Smooth rounded edges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow beneath the pill */
+    display: inline-block;      /* Keeps the background hugging the text tightly */
+}
+
+/* =========================================================
+   3. SIDEBAR MENU STYLES
+   ========================================================= */
+.menu-links {
+    position: fixed;
+    top: 0;
+    left: -250px; 
+    width: 250px;
+    height: 100vh;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding-top: 60px;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+.menu-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+.close-icon {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #00ffb3, #00b3ff);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #111;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(0, 255, 179, 0.3);
+    transition: 0.3s;
+    width: 150px;
+    height: 40px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 179, 0.5);
+}
+
+/* =========================================================
+   4. WEBPAGE CONTAINERS STRIP ZIGZAG SYSTEM (GUARANTEED SHIFT)
+   ========================================================= */
+.first-container, 
+.second-container, 
+.third-container, 
+.fourth-container, 
+.fifth-container {
+    width: 900px;          
+    text-align: center;
+    height: 300px;
+    border-radius: 10px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Box 1 (ปูน): Shifted Left */
+.first-container {
+    background: linear-gradient(135deg, #5b615f57, #5e8596b7);
+    transform: translateX(40px);
+}
+
+/* Box 2 (เหล็ก): Shifted Right */
+.second-container {
+    background: linear-gradient(135deg, #04b422c5, #2316dbb7);
+    transform: translateX(260px); /* 1200px width - 900px container - 40px gap */
+}
+
+/* Box 3 (สี): Shifted Right */
+.third-container {
+    background: linear-gradient(135deg, #c720bfc0, #ca350fce);
+    transform: translateX(40px);
+}
+
+/* Box 4 (Other): Shifted Left */
+.fourth-container {
+    background: linear-gradient(135deg, #d6da0ece, #08e42dc4);
+    transform: translateX(260px);
+}
+
+/* Box 5 (Wood): Shifted Right */
+.fifth-container {
+    background: linear-gradient(135deg, #0213ffb0, #9f03beb7);
+    transform: translateX(40px);
+}
+
+/* Text Header Hover Animations inside Containers */
+.first-container span,
+.second-container span,
+.third-container span,
+.fourth-container span,
+.fifth-container span {
+    cursor: pointer;
+}
+
+.construction-object:hover,
+.metal-object:hover,
+.color-object:hover {
+    color: yellow;
+    transform: translateY(-10px);
+    transition: 0.3s;
+}
+
+/* =========================================================
+   5. PORTRAIT WIDE PRODUCT CARDS
+   ========================================================= */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    gap: 8px;
+    transition: 0.3s;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.container:hover {
+    gap: 0;
+}
+
+.container li {
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 140px; /* Wider portrait format base */
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1.2px solid #eee;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.4), -2px -5px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.container li:hover {
+    flex: 0 1 280px; /* Beautiful expanded portrait wide layout */
+    scale: 1.05;
+    z-index: 10;
+    opacity: 1;
+}
+
+.container li img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.container li .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    color: #fff;
+    padding: 15px;
+    background: linear-gradient(0deg, rgb(0 0 0 / 85%) 15%, rgb(255 255 255 / 0%) 100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.container li .content span {
+    opacity: 0;
+    visibility: hidden;
+    scale: 0.85;
+    translate: -50%;
+    bottom: 10px;
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    text-align: center;
+    width: 85%;
+    font-family: 'Prompt', sans-serif;
+}
+
+.container li:hover .content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container li:hover span { 
+    scale: 1;
+    opacity: 1;
+    visibility: visible;
+}
+
+.content p, h2 {
+    font-size: small;
+    color: #ffffff; 
+    background-color: rgba(0, 0, 0, 0.65); 
+    padding: 6px;
+    border-radius: 4px;
+}
